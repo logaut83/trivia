@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rogueteam/features/number_trivia/presentation/pages/number_trivia_page.dart';
-import 'package:rogueteam/injection_container.dart' as di;
+import 'package:triviaapp/features/number_trivia/presentation/pages/number_trivia_page.dart';
+import 'package:triviaapp/injection_container.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rogueteam/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
-import 'package:rogueteam/features/number_trivia/presentation/widgets/widgets.dart';
-import 'package:rogueteam/injection_container.dart';
+import 'package:triviaapp/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
+import 'package:triviaapp/features/number_trivia/presentation/widgets/widgets.dart';
+import 'package:triviaapp/injection_container.dart';
 
 class NumberTriviaPage extends StatelessWidget {
   @override

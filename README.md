@@ -1,6 +1,27 @@
-# rogueteam
+# Trivia App for web and mobile
 
-A new Flutter project.
+- removed  data_connection_checker: ^0.3.4 (no web compatibility)
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  connectivity: ^3.0.3
+  cupertino_icons: ^1.0.2
+  dartz: ^0.9.2
+  equatable: ^2.0.0
+  flutter_bloc: ^7.0.0
+  get_it: ^6.0.0
+  http: ^0.13.1
+  shared_preferences: ^2.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  bloc_test: ^8.0.0
+  mockito: ^5.0.2
 
 ## Getting Started
 

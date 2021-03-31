@@ -1,6 +1,6 @@
 {
-    "name": "rogueteam",
-    "short_name": "rogueteam",
+    "name": "triviaapp",
+    "short_name": "triviaapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
