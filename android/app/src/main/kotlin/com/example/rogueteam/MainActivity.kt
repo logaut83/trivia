@@ -1,4 +1,4 @@
-package com.example.rogueteam
+package com.logaut.triviaapp
 
 import io.flutter.embedding.android.FlutterActivity
 
