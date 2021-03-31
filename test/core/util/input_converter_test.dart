@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:triviaapp/core/util/input_converter.dart';
+import 'package:rogueteam/core/util/input_converter.dart';
 
 void main() {
   InputConverter inputConverter;

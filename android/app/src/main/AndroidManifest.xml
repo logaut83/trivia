@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.logaut.triviaapp">
+    package="com.example.rogueteam">
    <application
-        android:label="triviaapp"
+        android:label="rogueteam"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

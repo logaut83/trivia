@@ -1,14 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:triviaapp/core/error/exceptions.dart';
-import 'package:triviaapp/core/error/failures.dart';
-import 'package:triviaapp/core/network/network_info.dart';
-import 'package:triviaapp/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
-import 'package:triviaapp/features/number_trivia/data/datasources/number_trivia_remote_datasource.dart';
-import 'package:triviaapp/features/number_trivia/data/models/number_trivia_model.dart';
-import 'package:triviaapp/features/number_trivia/data/repositories/number_trivia_repository_impl.dart';
-import 'package:triviaapp/features/number_trivia/domain/entities/number_trivia.dart';
+import 'package:rogueteam/core/error/exceptions.dart';
+import 'package:rogueteam/core/error/failures.dart';
+import 'package:rogueteam/core/network/network_info.dart';
+import 'package:rogueteam/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
+import 'package:rogueteam/features/number_trivia/data/datasources/number_trivia_remote_datasource.dart';
+import 'package:rogueteam/features/number_trivia/data/models/number_trivia_model.dart';
+import 'package:rogueteam/features/number_trivia/data/repositories/number_trivia_repository_impl.dart';
+import 'package:rogueteam/features/number_trivia/domain/entities/number_trivia.dart';
 
 class MockRemoteDatasource extends Mock
     implements NumberTriviaRemoteDataSource {}

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:triviaapp/core/error/exceptions.dart';
-import 'package:triviaapp/features/number_trivia/data/models/number_trivia_model.dart';
+import 'package:rogueteam/core/error/exceptions.dart';
+import 'package:rogueteam/features/number_trivia/data/models/number_trivia_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:meta/meta.dart';
 

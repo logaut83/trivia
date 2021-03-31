@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:triviaapp/features/number_trivia/data/models/number_trivia_model.dart';
-import 'package:triviaapp/features/number_trivia/domain/entities/number_trivia.dart';
+import 'package:rogueteam/features/number_trivia/data/models/number_trivia_model.dart';
+import 'package:rogueteam/features/number_trivia/domain/entities/number_trivia.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 

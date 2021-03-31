@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:triviaapp/core/network/network_info.dart';
+import 'package:rogueteam/core/network/network_info.dart';
 
 class MockNetworkInfo extends Mock implements NetworkInfo {}
 

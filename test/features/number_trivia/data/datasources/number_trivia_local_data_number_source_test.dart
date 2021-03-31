@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:triviaapp/core/error/exceptions.dart';
-import 'package:triviaapp/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
+import 'package:rogueteam/core/error/exceptions.dart';
+import 'package:rogueteam/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:triviaapp/features/number_trivia/data/models/number_trivia_model.dart';
+import 'package:rogueteam/features/number_trivia/data/models/number_trivia_model.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 
