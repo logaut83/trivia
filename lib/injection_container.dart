@@ -52,7 +52,7 @@ Future<void> init() async {
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl());
 
   //! External
-/*   final sharedPreferences = await SharedPreferences.getInstance(); */
-  sl.registerLazySingletonAsync(() => SharedPreferences.getInstance());
+  final sharedPreferences = await SharedPreferences.getInstance();
+  sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => http.Client());
 }
