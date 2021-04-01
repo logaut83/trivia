@@ -12,7 +12,9 @@ class NetworkInfoImpl implements NetworkInfo {
 
   @override
   Future<Either<Failure, bool>> get isConnected async {
-    try {
+    return Future.value(Right(true));
+    // TODO unhandled error with InternetAdress.lookup
+/*     try {
       String _adress = 'numbersapi.com';
       final result = await InternetAddress.lookup(_adress);
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
@@ -22,6 +24,6 @@ class NetworkInfoImpl implements NetworkInfo {
       }
     } catch (error) {
       return Left(ServerFailure());
-    }
+    } */
   }
 }
