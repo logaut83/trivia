@@ -1,25 +1,27 @@
 import 'dart:io';
 
+import 'package:dartz/dartz.dart';
+import 'package:triviaapp/core/error/failures.dart';
+
 abstract class NetworkInfo {
-  Future<bool> get isConnected;
+  Future<Either<Failure, bool>> get isConnected;
 }
 
 class NetworkInfoImpl implements NetworkInfo {
-  /* final DataConnectionChecker connectionChecker; */
-
-  NetworkInfoImpl(/* this.connectionChecker */);
+  NetworkInfoImpl();
 
   @override
-  Future<bool> get isConnected async {
+  Future<Either<Failure, bool>> get isConnected async {
     try {
-      final result = await InternetAddress.lookup('numbersapi.com');
+      String _adress = 'numbersapi.com';
+      final result = await InternetAddress.lookup(_adress);
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        return Future.value(true);
+        return Right(true);
       } else {
-        return Future.value(false);
+        return Right(false);
       }
-    } on SocketException catch (_) {
-      return Future.value(false);
+    } catch (error) {
+      return Left(ServerFailure());
     }
   }
 }

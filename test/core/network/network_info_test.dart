@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:triviaapp/core/network/network_info.dart';
@@ -19,7 +20,8 @@ void main() {
       // arange
       final tHasConnectionFuture = true;
       // act
-      final result = await networkInfo.isConnected;
+      final eitherFailureOrBool = await networkInfo.isConnected;
+      final result = eitherFailureOrBool.fold((failure) => failure, (r) => r);
       // assert
       expect(result, equals(tHasConnectionFuture));
     });
@@ -28,9 +30,10 @@ void main() {
         () async {
       // arange
       final tHasConnectionFuture = false;
-      when(mockNetworkInfo.isConnected).thenAnswer((_) => Future.value(false));
+      when(mockNetworkInfo.isConnected).thenAnswer((_) async => Right(false));
       // act
-      final result = await mockNetworkInfo.isConnected;
+      final eitherFailureOrBool = await mockNetworkInfo.isConnected;
+      final result = eitherFailureOrBool.fold((failure) => failure, (r) => r);
       // assert
       expect(result, equals(tHasConnectionFuture));
     });

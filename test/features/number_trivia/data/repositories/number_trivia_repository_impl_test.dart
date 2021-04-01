@@ -37,7 +37,7 @@ void main() {
   void runTestOnline(Function body) {
     group('device is online', () {
       setUp(() {
-        when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => Right(true));
       });
       body();
     });
@@ -46,7 +46,7 @@ void main() {
   void runTestOffline(Function body) {
     group('device is online', () {
       setUp(() {
-        when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => Right(false));
       });
       body();
     });
@@ -60,7 +60,7 @@ void main() {
 
     test('should check if the device is online', () async {
       // arange
-      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+      when(mockNetworkInfo.isConnected).thenAnswer((_) async => Right(true));
       // act
       repository.getConcreteNumberTrivia(tNumber);
       // assert
@@ -109,7 +109,7 @@ void main() {
 
     runTestOffline(() {
       setUp(() {
-        when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => Right(false));
       });
 
       test(
@@ -147,7 +147,7 @@ void main() {
 
     test('should check if the device is online', () async {
       // arange
-      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+      when(mockNetworkInfo.isConnected).thenAnswer((_) async => Right(true));
       // act
       repository.getRandomNumberTrivia();
       // assert
@@ -196,7 +196,7 @@ void main() {
 
     runTestOffline(() {
       setUp(() {
-        when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => Right(false));
       });
 
       test(

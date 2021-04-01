@@ -1,11 +1,9 @@
 # Trivia App for web and mobile
 
-- removed  data_connection_checker: ^0.3.4 (no web compatibility)
+- environment: sdk: ">=2.7.0 <3.0.0"
+  
 
-environment:
-  sdk: ">=2.7.0 <3.0.0"
-
-dependencies:
+- dependencies:
   flutter:
     sdk: flutter
   connectivity: ^3.0.3
