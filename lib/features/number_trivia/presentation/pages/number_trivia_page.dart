@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:triviaapp/core/constants/strings.dart';
 import 'package:triviaapp/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
-import 'package:triviaapp/features/number_trivia/presentation/widgets/widgets.dart';
-import 'package:triviaapp/features/theme_select/cubit/theme_cubit.dart';
+import 'package:triviaapp/features/number_trivia/presentation/widgets/trivia_widgets.dart';
+import 'package:triviaapp/features/theme_select/presentation/widgets/theme_widgets.dart';
 import 'package:triviaapp/injection_container.dart';
 
 class NumberTriviaPage extends StatelessWidget {
@@ -12,6 +12,9 @@ class NumberTriviaPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(Strings.TRIVIA_PAGE_TITLE),
+        actions: <Widget>[
+          Padding(padding: EdgeInsets.only(right: 20.0), child: ThemeSwitch()),
+        ],
       ),
       body: buildBody(context),
     );
@@ -91,12 +94,6 @@ class _TriviaControlsState extends State<TriviaControls> {
                   child: Text(Strings.TRIVIA_PAGE_GET_RANDOM),
                   textTheme: ButtonTextTheme.primary,
                   onPressed: dispatchRandom),
-            ),
-            Expanded(
-              child: RaisedButton(
-                  child: Text('change theme'),
-                  textTheme: ButtonTextTheme.primary,
-                  onPressed: context.read<ThemeCubit>().updateAppTheme),
             ),
           ],
         )

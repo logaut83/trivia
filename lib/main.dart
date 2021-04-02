@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:triviaapp/core/constants/strings.dart';
 import 'package:triviaapp/core/router/app_router.dart';
 import 'package:triviaapp/core/themes/app_theme.dart';
 import 'package:triviaapp/features/theme_select/cubit/theme_cubit.dart';
@@ -57,13 +58,14 @@ class _TriviaAppState extends State<TriviaApp> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Number Trivia',
+      title: Strings.TRIVIA_PAGE_TITLE,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode:
           context.select((ThemeCubit themeCubit) => themeCubit.state.themeMode),
       initialRoute: AppRouter.home,
       onGenerateRoute: AppRouter.onGenerateRoute,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
