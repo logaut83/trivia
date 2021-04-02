@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:triviaapp/core/themes/app_theme.dart';
+import 'package:triviaapp/features/theme_select/cubit/theme_cubit.dart';
 
 import 'core/network/network_info.dart';
 import 'core/util/input_converter.dart';
@@ -18,7 +20,7 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
   //! Features - Number Trivia
-  // Bloc
+  //* Bloc
   sl.registerFactory(
     () => NumberTriviaBloc(
       concrete: sl(),
@@ -27,11 +29,17 @@ Future<void> init() async {
     ),
   );
 
-  // Use cases
+  //* cubit
+  sl.registerFactory(() => ThemeCubit());
+
+  //* theme
+  sl.registerLazySingleton(() => AppTheme);
+
+  //* Use cases
   sl.registerLazySingleton(() => GetConcreteNumberTrivia(sl()));
   sl.registerLazySingleton(() => GetRandomNumberTrivia(sl()));
 
-  // Repository
+  //* Repository
   sl.registerLazySingleton<NumberTriviaRepository>(
     () => NumberTriviaRepositoryImpl(
       localDataSource: sl(),
@@ -40,7 +48,7 @@ Future<void> init() async {
     ),
   );
 
-  // Data sources
+  //* Data sources
   sl.registerLazySingleton<NumberTriviaRemoteDataSource>(
     () => NumberTriviaRemoteDataSourceImpl(client: sl()),
   );

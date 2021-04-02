@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:triviaapp/core/constants/strings.dart';
 import 'package:triviaapp/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
 import 'package:triviaapp/features/number_trivia/presentation/widgets/widgets.dart';
+import 'package:triviaapp/features/theme_select/cubit/theme_cubit.dart';
 import 'package:triviaapp/injection_container.dart';
 
 class NumberTriviaPage extends StatelessWidget {
@@ -9,7 +11,7 @@ class NumberTriviaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Number Trivia'),
+        title: Text(Strings.TRIVIA_PAGE_TITLE),
       ),
       body: buildBody(context),
     );
@@ -28,7 +30,8 @@ class NumberTriviaPage extends StatelessWidget {
               BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
                 builder: (context, state) {
                   if (state is NumberTriviaIntitalState) {
-                    return MessageDisplay(message: 'Start Searching !');
+                    return MessageDisplay(
+                        message: Strings.TRIVIA_PAGE_SEARCHING);
                   } else if (state is ErrorState) {
                     return MessageDisplay(message: state.message);
                   } else if (state is LoadingState) {
@@ -66,7 +69,8 @@ class _TriviaControlsState extends State<TriviaControls> {
         TextField(
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
-              border: OutlineInputBorder(), hintText: 'Input a number'),
+              border: OutlineInputBorder(),
+              hintText: Strings.TRIVIA_PAGE_INPUT),
           onChanged: (value) {
             inputStr = value;
           },
@@ -76,7 +80,7 @@ class _TriviaControlsState extends State<TriviaControls> {
           children: <Widget>[
             Expanded(
               child: RaisedButton(
-                  child: Text('Search'),
+                  child: Text(Strings.TRIVIA_PAGE_GET_TRIVIA),
                   color: Theme.of(context).accentColor,
                   textTheme: ButtonTextTheme.primary,
                   onPressed: dispatchConrete),
@@ -84,9 +88,15 @@ class _TriviaControlsState extends State<TriviaControls> {
             SizedBox(width: 10),
             Expanded(
               child: RaisedButton(
-                  child: Text('Get random trivia'),
+                  child: Text(Strings.TRIVIA_PAGE_GET_RANDOM),
                   textTheme: ButtonTextTheme.primary,
                   onPressed: dispatchRandom),
+            ),
+            Expanded(
+              child: RaisedButton(
+                  child: Text('change theme'),
+                  textTheme: ButtonTextTheme.primary,
+                  onPressed: context.read<ThemeCubit>().updateAppTheme),
             ),
           ],
         )
