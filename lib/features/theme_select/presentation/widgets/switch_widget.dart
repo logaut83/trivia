@@ -16,16 +16,18 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
   Widget build(BuildContext context) {
     return Center(
       child: Switch(
-        value: isSwitched,
-        onChanged: (value) {
-          setState(() {
-            isSwitched = value;
-            BlocProvider.of<ThemeCubit>(context).updateAppTheme();
-          });
-        },
-        activeTrackColor: Colors.yellow,
-        activeColor: Colors.orangeAccent,
-      ),
-    );
-  }
+        value:  _getThemeState(),
+                onChanged: (value) {
+                  setState(() {
+                    isSwitched = value;
+                    BlocProvider.of<ThemeCubit>(context).updateAppTheme();
+                  });
+                },
+                activeTrackColor: Colors.yellow,
+                activeColor: Colors.orangeAccent,
+              ),
+            );
+          }
+        
+          bool  _getThemeState() {return BlocProvider.of<ThemeCubit>(context).state.themeMode == ThemeMode.light ? false : true;}
 }
